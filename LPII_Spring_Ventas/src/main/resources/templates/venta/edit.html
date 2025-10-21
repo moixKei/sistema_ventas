@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Spring Boot</title>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Sistema de Ventas</a>
+            
+            <!-- Toggler/Collapse Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/usuario}">Mantenedor Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/cliente}">Mantenedor Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/producto}">Mantenedor Producto</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" th:href="@{/venta}">Mantenedor Venta</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+        <div class="container mt-3">
+        
+        
+        
+        
+             <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>NroVenta</th>
+                        <th>IdProducto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item: ${listDetalleVenta}">
+                        <td th:text="${item.id.venta.id}"></td>
+                        <td th:text="${item.id.producto.idProd}"></td>
+                        <td th:text="${item.precio_vta}"></td>
+                        <td th:text="${item.cantidad_vta}"></td> 
+                        <td th:text="${item.importe_vta}"></td> 
+                        
+                </tr>
+                </tbody>
+            </table>
+        
+        
+        </div>
+             
+    </body>
+</html>
